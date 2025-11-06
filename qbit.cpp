@@ -14,7 +14,7 @@ std::ostream& operator<<(std::ostream& out ,const  Complex& obj){
         out<<obj.img<<"j";
         return out;
     }
-    else if(obj.real==0 && obj.img!=0){
+    else if(obj.real!=0 && obj.img==0){
         out<<obj.real;
         return out;
     }
