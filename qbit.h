@@ -1,28 +1,34 @@
 #ifndef QBIT_H
 #define QBIT_H
 
+#include <iostream>
 #include <vector>
 
-class Complex{
-    public:
+class Complex {
+public:
     double real;
     double img;
-    Complex(double a , double b);
-    friend std::ostream& operator<<(std::ostream out, Complex& obj);
+
+    Complex(double a = 0, double b = 0);
+
+    friend std::ostream& operator<<(std::ostream& out, const Complex& obj);
 };
 
-class Qbit{
-    private:
-        Complex alpha;
-        Complex beta;
-    public:
-        Qbit(Complex a,Complex b);
-        Complex getalpha() const ;
-        Complex getbeta() const ;
-        void setalpha(const Complex& n);
-        void setbeta(const Complex& n);
+class Qbit {
+private:
+    Complex alpha;
+    Complex beta;
 
-        friend std::ostream& operator<<(std::ostream& out,const  Qbit& obj);
+public:
+    Qbit(Complex a, Complex b);
+
+    Complex getalpha() const;
+    Complex getbeta() const;
+
+    void setalpha(const Complex& n);
+    void setbeta(const Complex& n);
+
+    friend std::ostream& operator<<(std::ostream& out, const Qbit& obj);
 };
 
 #endif

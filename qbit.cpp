@@ -28,7 +28,6 @@ Complex Qbit::getbeta() const { return beta; }
 void Qbit::setalpha(const Complex& c) { alpha = c; }
 void Qbit::setbeta(const Complex& c) { beta = c; }
 
-
 std::ostream& operator<<(std::ostream& out, const Qbit& obj){
      out<<"("<<obj.alpha<<")"<<"|0> + "<<"("<<obj.beta<<")"<<"|1>"<<std::endl;
      return out;
