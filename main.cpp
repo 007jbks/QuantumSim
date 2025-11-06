@@ -10,7 +10,10 @@ int main()
 
     Qbit q(a,b);
 
-    cout<<q;
+    cout<<q.getalpha();
+
+    vector<Complex> v = {a,b};
+    Qbits Q(v);
 
 
     return 0;

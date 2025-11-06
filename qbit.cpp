@@ -32,3 +32,6 @@ std::ostream& operator<<(std::ostream& out, const Qbit& obj){
      out<<"("<<obj.alpha<<")"<<"|0> + "<<"("<<obj.beta<<")"<<"|1>"<<std::endl;
      return out;
 }
+
+
+Qbits::Qbits(std::vector<Complex> vector) : stateVector(vector) {}

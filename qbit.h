@@ -31,4 +31,12 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Qbit& obj);
 };
 
+
+class Qbits{
+    private:
+        std::vector<Complex> stateVector;
+    public:
+        Qbits(std::vector<Complex> vector);
+};
+
 #endif
