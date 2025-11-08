@@ -3,7 +3,7 @@
 
 ---
 
-## 📘 Overview
+##  Overview
 
 **QuantumSim** is a lightweight and extensible C++ library designed to simulate and visualize the behavior of **single-qubit quantum systems**.
 It provides a modular, object-oriented framework to represent qubits, apply quantum gates, and visualize gate sequences as readable circuit diagrams in the command line.
@@ -12,7 +12,7 @@ The project is built with mathematical correctness and extensibility in mind —
 
 ---
 
-## 🧩 Features
+## Features
 
 ### 1. Qubit Representation
 - Models a single qubit state as:
@@ -42,9 +42,32 @@ The project is built with mathematical correctness and extensibility in mind —
 Each gate enforces proper dimensionality and throws exceptions on invalid application.
 
 ---
-
 ### 3. Qubit Operations
-- Apply gates dynamically using:
-  ```cpp
-  qbit.applyGate(Hadamard());
-```
+
+QuantumSim allows you to manipulate qubit states by applying quantum gates directly through the `applyGate()` method.
+
+#### Example: Basic Gate Application
+```cpp
+#include "Hadamard.h"
+#include "XGate.h"
+#include "ZGate.h"
+#include "Qbit.h"
+#include <iostream>
+using namespace std;
+
+int main() {
+    Hadamard H;
+    XGate X;
+    ZGate Z;
+
+    Qbit q({1,0}, {0,0}); // Initialize |0⟩
+
+    cout << "Initial: " << q << endl;
+
+    q.applyGate(H);  // Create superposition
+    q.applyGate(X);  // Flip amplitudes
+    q.applyGate(Z);  // Apply phase flip
+
+    cout << "Final: " << q << endl;
+    q.printCircuit();  // Visualize applied sequence
+}
