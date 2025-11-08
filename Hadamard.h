@@ -5,6 +5,7 @@
 #include "qbit.h"
 #include <cmath>
 
+// Hadamard gate constructor
 class Hadamard : public Gate {
 public:
     Hadamard() : Gate("Hadamard", 1) {

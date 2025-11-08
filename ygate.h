@@ -4,6 +4,7 @@
 #include "gate.h"
 #include <complex>
 
+// Ygate constructor
 class YGate : public Gate {
 public:
     YGate() : Gate("Y", 1) {

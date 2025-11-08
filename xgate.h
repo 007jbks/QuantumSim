@@ -4,6 +4,7 @@
 #include "gate.h"
 #include "qbit.h"
 
+// Xgate constructor
 class XGate : public Gate {
     public:
     XGate() : Gate("X",1) {

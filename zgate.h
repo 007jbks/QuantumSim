@@ -4,6 +4,7 @@
 #include "gate.h"
 #include <complex>
 
+// Zgate constructor
 class ZGate : public Gate {
 public:
     ZGate() : Gate("Z", 1) {

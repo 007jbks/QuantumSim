@@ -8,12 +8,7 @@
 #include <cmath>
 using namespace std;
 
-// Utility for printing separator lines
-void printSeparator(const string& title) {
-    cout << "\n==============================================\n";
-    cout << "▶ " << title << endl;
-    cout << "==============================================\n";
-}
+
 
 int main() {
 

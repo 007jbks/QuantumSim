@@ -3,7 +3,7 @@
 #include "multistate.h"
 #include <cmath>
 #include <stdexcept>
-
+//constructor
 MultiState::MultiState(std::vector<std::complex<double>> input)
     : StateVector(input)
 {
@@ -29,7 +29,7 @@ MultiState::MultiState(std::vector<std::complex<double>> input)
         throw std::invalid_argument("Invalid state: amplitudes must be normalized (|ψ|² = 1).");
 }
 
-
+//operator overloading for printing multistate system
 std::ostream& operator<<(std::ostream& out, const MultiState& obj)
 {
     size_t n = obj.StateVector.size();
