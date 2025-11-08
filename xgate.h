@@ -2,11 +2,11 @@
 #define XGATE_H
 
 #include "gate.h"
+#include "qbit.h"
 
 class XGate : public Gate {
     public:
     XGate() : Gate("X",1) {
-        Gate::gates.push_back("X");
         defineMatrix() ;
     }
     void defineMatrix() override {

@@ -13,8 +13,6 @@ protected:
     std::string name;
     int numQubits;
 
-    // Shared across all Gate objects
-    static std::vector<std::string> gates;
 
 
 public:

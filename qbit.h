@@ -11,7 +11,9 @@ class Qbit {
 private:
     std::complex<double> alpha;
     std::complex<double> beta;
-public:
+    public:
+    std::vector<std::string> gates;
+    void printCircuit();
     Qbit(std::complex<double> a, std::complex<double> b);
     std::complex<double> getalpha() const;
     std::complex<double> getbeta() const;

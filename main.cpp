@@ -3,6 +3,7 @@
 #include "ygate.h"
 #include "zgate.h"
 #include "qbit.h"
+#include <complex>
 #include <iostream>
 
 using namespace std;
@@ -13,31 +14,21 @@ int main() {
     YGate y;
     ZGate z;
 
-    vector<pair<string, Qbit>> tests = {
-        {"|0>", Qbit({1,0}, {0,0})},
-        {"|1>", Qbit({0,0}, {1,0})}
-    };
+    complex<double> a(1/sqrt(2),0);
+    complex<double> b(1/sqrt(2),0);
 
-    for (auto& [label, q] : tests) {
-        cout << "\n======================" << endl;
-        cout << "Initial State: " << label << " → " << q << endl;
+    Qbit bit1(a,b);
 
-        Qbit qh = q;
-        qh.applyGate(h);
-        cout << "After Hadamard: " << qh << endl;
+    bit1.applyGate(h);
+    bit1.applyGate(x);
 
-        Qbit qx = q;
-        qx.applyGate(x);
-        cout << "After X: " << qx << endl;
+    bit1.printCircuit();
 
-        Qbit qy = q;
-        qy.applyGate(y);
-        cout << "After Y: " << qy << endl;
+    Qbit bit2(a,b);
 
-        Qbit qz = q;
-        qz.applyGate(z);
-        cout << "After Z: " << qz << endl;
+    bit2.applyGate(z);
+    bit2.applyGate(y);
+    bit2.printCircuit();
 
-    }
-    h.printCircuit();
+
 }

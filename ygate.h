@@ -7,15 +7,12 @@
 class YGate : public Gate {
 public:
     YGate() : Gate("Y", 1) {
-        Gate::gates.push_back("Y");
-
-        defineMatrix(); }
-    void defineMatrix() override {
         matrix = {
             {{0,0}, {0,-1}},
             {{0,1}, {0,0}}
         };
     }
+    void defineMatrix() override {}
 };
 
 #endif

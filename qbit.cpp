@@ -1,6 +1,8 @@
 #include "qbit.h"
 #include "gate.h"
 
+
+
 //Qbit constructor
 Qbit::Qbit(std::complex<double> a, std::complex<double> b) {
     double norm = std::norm(a) + std::norm(b);
@@ -35,8 +37,43 @@ void Qbit::applyGate(const Gate& gate) {
     alpha = newAlpha;
     beta  = newBeta;
 
-    //  renormalization
+    // Renormalization
     double norm = std::sqrt(std::norm(alpha) + std::norm(beta));
     alpha /= norm;
     beta  /= norm;
+
+    // Track gate usage
+    Qbit::gates.push_back(gate.getName());
 }
+
+    void Qbit::printCircuit() {
+        if (gates.empty()) {
+            std::cout << "No gates in the circuit yet.\n";
+            return;
+        }
+
+        std::cout << "\nQuantum Circuit:\n";
+
+        for (size_t i = 0; i < gates.size(); ++i) {
+            std::cout << "┌";
+            for (int j = 0; j < gates[i].size() + 2; ++j) std::cout << "─";
+            std::cout << "┐   ";
+        }
+        std::cout << "\n";
+
+        for (size_t i = 0; i < gates.size(); ++i) {
+            std::cout << "│ " << gates[i] << " │";
+            if (i != gates.size() - 1)
+                std::cout << "──▶";
+            else
+                std::cout << "   ";
+        }
+        std::cout << "\n";
+
+        for (size_t i = 0; i < gates.size(); ++i) {
+            std::cout << "└";
+            for (int j = 0; j < gates[i].size() + 2; ++j) std::cout << "─";
+            std::cout << "┘   ";
+        }
+        std::cout << "\n";
+    }
