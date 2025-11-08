@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <complex>
-
+#include "gate.h"
 
 
 class Qbit {
@@ -17,6 +17,7 @@ public:
     std::complex<double> getbeta() const;
     void setalpha(const std::complex<double>& n);
     void setbeta(const std::complex<double>& n);
+    void applyGate(const Gate& gate);
     friend std::ostream& operator<<(std::ostream& out, const Qbit& obj);
 };
 

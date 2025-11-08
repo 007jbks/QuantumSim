@@ -1,27 +1,19 @@
-#include <cmath>
-#include <complex>
-#include <iostream>
+#include "Hadamard.h"
+#include "xgate.h"
 #include "qbit.h"
-#include "multistate.h"
+#include <iostream>
 
-using namespace std;
+int main() {
+    Qbit q({0,0}, {1,0}); // |1>
+    Hadamard h;
+    XGate x;
 
-int main()
-{
+    std::cout << "Initial: " << q << std::endl;
 
-    complex<double> a = {1.0 / sqrt(4), 0};
-    complex<double> b = {1.0 / sqrt(4), 0};
+    q.applyGate(h);
+    std::cout << "After H: " << q << std::endl;
 
+    q.applyGate(x);
+    std::cout << "After X: " << q << std::endl;
 
-    complex<double> c = {1.0/sqrt(4),0};
-    complex<double> d = {1.0/sqrt(4),0};
-
-    vector<complex<double>> v = {a,b,c,d};
-    MultiState ms(v);
-
-    cout<<ms;
-
-
-
-    return 0;
 }
