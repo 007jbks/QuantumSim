@@ -1,37 +1,22 @@
 #include "qbit.h"
-#include<iostream>
-#include <ostream>
 
-Qbit::Qbit(Complex a, Complex b) : alpha(a),beta(b) {}
-Complex::Complex(double a, double b) : real(a), img(b) {}
+Qbit::Qbit(std::complex<double> a, std::complex<double> b) {
+    double norm = std::norm(a) + std::norm(b);
 
-std::ostream& operator<<(std::ostream& out ,const  Complex& obj){
-    if(obj.real==0 && obj.img==0) {
-        out<<"0";
-        return out;
+    if (std::abs(norm - 1.0) > 1e-9) {
+        throw std::invalid_argument("Invalid Qbit initialization: |a|^2 + |b|^2 must equal 1.");
     }
-    else if(obj.real==0 && obj.img!=0){
-        out<<obj.img<<"j";
-        return out;
-    }
-    else if(obj.real!=0 && obj.img==0){
-        out<<obj.real;
-        return out;
-    }
-    out<<obj.real<<"+"<<obj.img<<"j";
+    alpha = a;
+    beta = b;
+}
+
+std::complex<double> Qbit::getalpha() const { return alpha; }
+std::complex<double> Qbit::getbeta() const { return beta; }
+
+void Qbit::setalpha(const std::complex<double>& c) { alpha = c; }
+void Qbit::setbeta(const std::complex<double>& c) { beta = c; }
+
+std::ostream& operator<<(std::ostream& out, const Qbit& obj) {
+    out << "(" << obj.alpha << ")|0> + (" << obj.beta << ")|1>";
     return out;
 }
-
-Complex Qbit::getalpha() const { return alpha; }
-Complex Qbit::getbeta() const { return beta; }
-
-void Qbit::setalpha(const Complex& c) { alpha = c; }
-void Qbit::setbeta(const Complex& c) { beta = c; }
-
-std::ostream& operator<<(std::ostream& out, const Qbit& obj){
-     out<<"("<<obj.alpha<<")"<<"|0> + "<<"("<<obj.beta<<")"<<"|1>"<<std::endl;
-     return out;
-}
-
-
-Qbits::Qbits(std::vector<Complex> vector) : stateVector(vector) {}

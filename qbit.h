@@ -3,40 +3,29 @@
 
 #include <iostream>
 #include <vector>
+#include <complex>
 
-class Complex {
-public:
-    double real;
-    double img;
 
-    Complex(double a = 0, double b = 0);
-
-    friend std::ostream& operator<<(std::ostream& out, const Complex& obj);
-};
 
 class Qbit {
 private:
-    Complex alpha;
-    Complex beta;
-
+    std::complex<double> alpha;
+    std::complex<double> beta;
 public:
-    Qbit(Complex a, Complex b);
-
-    Complex getalpha() const;
-    Complex getbeta() const;
-
-    void setalpha(const Complex& n);
-    void setbeta(const Complex& n);
-
+    Qbit(std::complex<double> a, std::complex<double> b);
+    std::complex<double> getalpha() const;
+    std::complex<double> getbeta() const;
+    void setalpha(const std::complex<double>& n);
+    void setbeta(const std::complex<double>& n);
     friend std::ostream& operator<<(std::ostream& out, const Qbit& obj);
 };
 
 
 class Qbits{
     private:
-        std::vector<Complex> stateVector;
+        std::vector<std::complex<double>> stateVector;
     public:
-        Qbits(std::vector<Complex> vector);
+        Qbits(std::vector<std::complex<double>> vector);
 };
 
 #endif

@@ -1,3 +1,4 @@
+#include <complex>
 #include <iostream>
 #include "qbit.h"
 
@@ -5,15 +6,14 @@ using namespace std;
 
 int main()
 {
-    Complex a(1,0);
-    Complex b(0,0);
+
+    complex<double> a = {1.0 / sqrt(2), 0};
+       complex<double> b = {1.0 / sqrt(2), 0};
 
     Qbit q(a,b);
 
     cout<<q.getalpha();
 
-    vector<Complex> v = {a,b};
-    Qbits Q(v);
 
 
     return 0;
