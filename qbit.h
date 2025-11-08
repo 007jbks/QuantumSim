@@ -20,12 +20,4 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Qbit& obj);
 };
 
-
-class Qbits{
-    private:
-        std::vector<std::complex<double>> stateVector;
-    public:
-        Qbits(std::vector<std::complex<double>> vector);
-};
-
 #endif
