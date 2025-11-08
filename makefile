@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -std=c++17 -Wall -O2
 
 
-SRCS = qbit.cpp  main.cpp multistate.cpp
+SRCS = qbit.cpp  main.cpp multistate.cpp gate.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

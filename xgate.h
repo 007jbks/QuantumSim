@@ -6,6 +6,7 @@
 class XGate : public Gate {
     public:
     XGate() : Gate("X",1) {
+        Gate::gates.push_back("X");
         defineMatrix() ;
     }
     void defineMatrix() override {

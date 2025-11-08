@@ -9,12 +9,18 @@
 
 class Gate {
 protected:
-    std::vector<std::vector<std::complex<double>>> matrix; // 2x2 or 4x4 etc.
+    std::vector<std::vector<std::complex<double>>> matrix;
     std::string name;
     int numQubits;
 
+    // Shared across all Gate objects
+    static std::vector<std::string> gates;
+
+
 public:
-    Gate(const std::string& n, int nq) : name(n), numQubits(nq) {}
+static void printCircuit();
+
+    Gate(const std::string& n, int nq);
     virtual ~Gate() = default;
 
     std::string getName() const { return name; }
@@ -24,23 +30,9 @@ public:
 
     virtual void defineMatrix() = 0;
 
-    std::vector<std::complex<double>> apply(const std::vector<std::complex<double>>& state) const {
-        if (matrix.empty())
-            throw std::runtime_error("Gate matrix not defined.");
+    std::vector<std::complex<double>> apply(const std::vector<std::complex<double>>& state) const;
 
-        size_t dim = matrix.size();
-        if (state.size() != dim)
-            throw std::invalid_argument("State vector size does not match gate matrix dimension.");
-
-        std::vector<std::complex<double>> result(dim, {0, 0});
-
-        for (size_t i = 0; i < dim; ++i) {
-            for (size_t j = 0; j < dim; ++j) {
-                result[i] += matrix[i][j] * state[j];
-            }
-        }
-        return result;
-    }
+    static std::vector<std::string> getCircuit();
 };
 
 #endif

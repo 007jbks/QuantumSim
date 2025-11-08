@@ -5,7 +5,9 @@
 
 class ZGate : public Gate {
 public:
-    ZGate() : Gate("Z", 1) { defineMatrix(); }
+    ZGate() : Gate("Z", 1) {
+        Gate::gates.push_back("Z");
+        defineMatrix(); }
     void defineMatrix() override {
         matrix = {
             {{1,0}, {0,0}},
