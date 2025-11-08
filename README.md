@@ -32,12 +32,14 @@ The project is built with mathematical correctness and extensibility in mind —
 
 #### Supported Gates
 
-| Gate | Matrix | Description |
-|------|---------|-------------|
-| **Hadamard (H)** | \( \frac{1}{\sqrt{2}}\begin{bmatrix}1 & 1 \\ 1 & -1\end{bmatrix} \) | Creates and destroys superposition |
-| **Pauli-X (X)** | \( \begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix} \) | Bit-flip (NOT gate) |
-| **Pauli-Y (Y)** | \( \begin{bmatrix}0 & -i \\ i & 0\end{bmatrix} \) | Bit-flip with phase rotation |
-| **Pauli-Z (Z)** | \( \begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix} \) | Phase-flip on |1⟩ |
+#### Supported Gates
+
+| Gate | Description |
+|------|-------------|
+| **Hadamard (H)** | Creates and destroys superposition; transforms basis states into equal-amplitude superpositions. |
+| **Pauli-X (X)** | Bit-flip (quantum NOT) gate; swaps amplitudes of |0⟩ and |1⟩. |
+| **Pauli-Y (Y)** | Bit-flip with a phase rotation of π/2; introduces imaginary components to the qubit state. |
+| **Pauli-Z (Z)** | Phase-flip gate; inverts the phase of the |1⟩ component, leaving |0⟩ unchanged. |
 
 Each gate enforces proper dimensionality and throws exceptions on invalid application.
 
